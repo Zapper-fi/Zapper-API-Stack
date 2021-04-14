@@ -67,7 +67,7 @@ describe("Zap Consumer", () => {
 
       const tx = await this.zapConsumer.Zap(
         data.sellTokenAddress,
-        ether("1"),
+        data.value,
         data.buyTokenAddress,
         data.to,
         data.data,

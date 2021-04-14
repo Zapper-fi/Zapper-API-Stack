@@ -10,11 +10,11 @@ contract Zap_Consumer_V1 {
     using SafeERC20 for IERC20;
 
     /**
-    @param sellTokenAddress Token being sent (0 address if ETH)
-    @param buyTokenAddress Token to purchase (e.g pool or vault token)
-    @param sellTokenQuantity Quantity of fromToken being sent
-    @param zapContract Address of Zap contract
-    @param data Zap data
+    @param sellTokenAddress The 'sellTokenAddress' from the API response
+    @param buyTokenAddress The 'buyTokenAddress' field from the API response
+    @param sellTokenQuantity The 'value' field from the API response
+    @param zapContract The 'to' field from the API response
+    @param data The 'data' field from the API response
     */
     function Zap(
         address sellTokenAddress,
