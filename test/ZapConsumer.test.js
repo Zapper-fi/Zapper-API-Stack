@@ -64,15 +64,16 @@ describe("Zap Consumer", () => {
       const initialBalance = await tokenInstance.balanceOf(toWhomToIssue);
       console.log({ initialBalance: initialBalance.toString() / 10 ** 18 });
 
-
       const tx = await this.zapConsumer.Zap(
         data.sellTokenAddress,
-        data.value,
+        data.sellTokenAmount,
         data.buyTokenAddress,
         data.to,
         data.data,
-        { from: toWhomToIssue, value: ether("1") }
+        { from: toWhomToIssue, value: data.value }
       );
+
+      await tokenTransfers.print(tx);
 
       const finalBalance = await tokenInstance.balanceOf(toWhomToIssue);
       console.log({ finalBalance: finalBalance.toString() / 10 ** 18 });
